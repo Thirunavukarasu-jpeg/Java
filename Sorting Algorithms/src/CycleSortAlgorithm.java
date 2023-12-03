@@ -6,14 +6,11 @@ public class CycleSortAlgorithm {
         System.out.println(Arrays.toString(cycleSort(arr)));
     }
     static int[] cycleSort(int[] arr) {
-        int initial = 0;
-        while(initial < arr.length - 1) {
-            if(arr[initial] - 1 != initial) {
-                int temp = arr[arr[initial] - 1];
-                arr[arr[initial] - 1] = arr[initial];
-                arr[initial] = temp;
-            } else {
-                initial++;
+        for(int i = 0; i < arr.length; i++) {
+            while (arr[i] - 1 != i) {
+                int temp = arr[arr[i] - 1];
+                arr[arr[i] - 1] = arr[i];
+                arr[i] = temp;
             }
         }
         return arr;
